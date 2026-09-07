@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jinwon (Jin) Hwang · Strategy & Operations</title>
+<meta name="description" content="Jinwon Hwang. Duke MBA 2027. Seven years making things move between institutions with opposed interests.">
+<style>
+:root{
+  color-scheme: light;
+  --ink:#141518; --ink-2:#2a2c31; --mut:#6b6f78; --line:#e6e4df;
+  --paper:#fbfaf7; --card:#ffffff;
+  --accent:#c2410c;        /* burnt orange */
+  --accent-2:#f5e6db;      /* its tint */
+  --navy:#0f1f3d;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,"Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.6;font-size:16.5px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:960px;margin:0 auto;padding:0 28px}
+a{color:inherit;text-decoration:none}
+
+/* ============ HERO ============ */
+.hero{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+  background-size:48px 48px;
+}
+.hero::after{
+  content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;
+  background:radial-gradient(circle,rgba(194,65,12,.55),rgba(194,65,12,0) 68%);pointer-events:none;
+}
+.hero .wrap{position:relative;padding-top:72px;padding-bottom:64px}
+.eyebrow{font-family:var(--sans);font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:#f0b48e;font-weight:600}
+.hero h1{font-family:var(--serif);font-size:clamp(3rem,7vw,5.2rem);line-height:.98;letter-spacing:-.025em;font-weight:500;margin-top:16px}
+.hero h1 em{font-style:italic;color:#f0b48e}
+.lede{font-family:var(--serif);font-size:clamp(1.15rem,2.2vw,1.42rem);line-height:1.45;margin-top:28px;max-width:34ch;color:#e9e6df}
+.lede strong{color:#fff;font-weight:500}
+.hero-foot{display:flex;flex-wrap:wrap;gap:12px 28px;margin-top:38px;font-size:.9rem;color:#b9bfcc}
+.hero-foot b{color:#fff;font-weight:560}
+
+/* ============ CAPABILITIES ============ */
+.caps{background:var(--card);border-bottom:1px solid var(--line)}
+.caps .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.cap{padding:30px 22px 30px 0;border-right:1px solid var(--line);margin-right:22px}
+.cap:last-child{border-right:0;margin-right:0}
+.cap .n{font-family:var(--serif);font-size:2rem;color:var(--accent);line-height:1;font-style:italic}
+.cap h3{font-size:1.02rem;font-weight:650;margin-top:12px;letter-spacing:-.01em}
+.cap p{font-size:.88rem;color:var(--mut);margin-top:6px;line-height:1.5}
+
+/* ============ SECTIONS ============ */
+section{padding:72px 0}
+.sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:40px}
+.sec-head h2{font-family:var(--serif);font-size:2.1rem;font-weight:500;letter-spacing:-.02em}
+.sec-head .rule{flex:1;height:1px;background:var(--line)}
+.sec-head .k{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);font-weight:600}
+
+/* ============ CASES ============ */
+.case{display:grid;grid-template-columns:88px 1fr;gap:28px;padding:40px 0;border-top:1px solid var(--line)}
+.case:first-of-type{border-top:0;padding-top:0}
+.idx{font-family:var(--serif);font-size:3.4rem;line-height:1;color:var(--accent);font-style:italic;letter-spacing:-.04em;padding-top:4px}
+.case h3{font-family:var(--serif);font-size:1.62rem;line-height:1.2;font-weight:500;letter-spacing:-.015em}
+.meta{font-size:.84rem;color:var(--mut);margin-top:8px;display:flex;flex-wrap:wrap;gap:6px 14px}
+.meta b{color:var(--ink-2);font-weight:560}
+.case p{margin-top:16px;max-width:64ch;color:var(--ink-2)}
+.nums{display:flex;flex-wrap:wrap;gap:34px;margin-top:22px;padding:18px 22px;background:var(--card);border:1px solid var(--line);border-radius:6px}
+.num b{display:block;font-family:var(--serif);font-size:2.1rem;font-weight:500;letter-spacing:-.03em;line-height:1;color:var(--ink)}
+.num span{font-size:.8rem;color:var(--mut);display:block;margin-top:6px}
+.pull{margin-top:20px;padding:0 0 0 20px;border-left:3px solid var(--accent);font-family:var(--serif);font-size:1.1rem;line-height:1.5;color:var(--ink);max-width:58ch}
+.pull .lab{display:block;font-family:var(--sans);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:650;margin-bottom:6px}
+
+/* ============ EXPERIENCE ============ */
+.xp{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.job{display:grid;grid-template-columns:120px 1fr;gap:24px;padding:22px 0;border-top:1px solid var(--line)}
+.job:first-of-type{border-top:0;padding-top:0}
+.yr{font-family:var(--serif);font-size:1.05rem;color:var(--accent);font-style:italic;padding-top:2px}
+.job h4{font-size:1.08rem;font-weight:640;letter-spacing:-.01em}
+.job .where{font-size:.88rem;color:var(--mut);margin-top:3px}
+.job p{font-size:.95rem;margin-top:9px;max-width:62ch;color:var(--ink-2)}
+
+/* ============ HOW ============ */
+.how{display:grid;grid-template-columns:1fr 1fr;gap:34px 44px}
+.pt h4{font-family:var(--serif);font-size:1.32rem;font-weight:500;letter-spacing:-.012em;line-height:1.25}
+.pt h4::before{content:"";display:block;width:34px;height:3px;background:var(--accent);margin-bottom:14px}
+.pt p{font-size:.96rem;color:var(--ink-2);margin-top:10px}
+
+/* ============ FOOTER ============ */
+footer{background:var(--navy);color:#fff}
+footer .wrap{padding-top:64px;padding-bottom:72px}
+footer h2{font-family:var(--serif);font-size:2.4rem;font-weight:500;letter-spacing:-.02em;line-height:1.1}
+footer h2 em{font-style:italic;color:#f0b48e}
+footer p{margin-top:16px;color:#c9cdd8;max-width:56ch}
+.contact{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{padding:12px 20px;border:1px solid rgba(255,255,255,.28);border-radius:6px;font-size:.95rem;color:#fff;transition:.15s}
+.btn:hover{background:#fff;color:var(--navy);border-color:#fff}
+.btn.solid{background:var(--accent);border-color:var(--accent)}
+.btn.solid:hover{background:#e0561a;border-color:#e0561a;color:#fff}
+.fine{font-size:.85rem;color:#9aa1b1;margin-top:34px;max-width:60ch}
+
+@media(max-width:820px){
+  .caps .wrap{grid-template-columns:1fr 1fr}
+  .cap{border-right:0;margin-right:0;padding-right:0;border-bottom:1px solid var(--line)}
+  .cap:nth-last-child(-n+2){border-bottom:0}
+  .how{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  body{font-size:16px}
+  .hero .wrap{padding-top:52px;padding-bottom:48px}
+  .caps .wrap{grid-template-columns:1fr}
+  .cap:nth-last-child(-n+2){border-bottom:1px solid var(--line)}
+  .cap:last-child{border-bottom:0}
+  section{padding:52px 0}
+  .case{grid-template-columns:1fr;gap:6px}
+  .idx{font-size:2.2rem}
+  .job{grid-template-columns:1fr;gap:4px}
+  .nums{gap:22px}
+  .num b{font-size:1.7rem}
+}
+@media print{
+  body{background:#fff;font-size:11pt}
+  .hero,footer{background:#fff!important;color:#000!important}
+  .hero::before,.hero::after{display:none}
+  .hero h1 em,.eyebrow,footer h2 em{color:#000}
+  .lede,.hero-foot,footer p{color:#333}
+  .btn{color:#000;border-color:#999}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= HERO ================= -->
+<div class="hero">
+<div class="wrap">
+  <div class="eyebrow">Jinwon Hwang &nbsp;&middot;&nbsp; goes by Jin &nbsp;&middot;&nbsp; Duke MBA 2027</div>
+  <h1>I make things move<br>between sides that<br><em>don't agree.</em></h1>
+  <p class="lede">Conglomerates and their suppliers. Big corporates and small firms. Buyers and
+  sellers. <strong>Seven years in that seat, never once with authority over either side.</strong></p>
+  <div class="hero-foot">
+    <span><b>Now</b> Strategy &middot; operations &middot; partnerships &middot; corporate development</span>
+    <span><b>From</b> Mid-2027</span>
+    <span><b>Where</b> Durham, NC &middot; open to relocation</span>
+  </div>
+</div>
+</div>
+
+<!-- ================= CAPABILITIES ================= -->
+<div class="caps">
+<div class="wrap">
+  <div class="cap">
+    <div class="n">i</div>
+    <h3>Diagnose before acting</h3>
+    <p>The bottleneck is almost never what it looks like on the surface. Five times across five
+    unrelated domains, the obvious scarcity wasn't the scarcity.</p>
+  </div>
+  <div class="cap">
+    <div class="n">ii</div>
+    <h3>Move parties without authority</h3>
+    <p>Framing, incentive design, and coalition. A commission cannot order a conglomerate to do
+    anything. I made them do things anyway.</p>
+  </div>
+  <div class="cap">
+    <div class="n">iii</div>
+    <h3>Ship the structure, not the memo</h3>
+    <p>A compliance platform 500 companies use. An intake card four buyers run through.
+    A committee that made my own mediation unnecessary.</p>
+  </div>
+  <div class="cap">
+    <div class="n">iv</div>
+    <h3>Build AI workflows, then check them</h3>
+    <p>Six working systems without an engineering background. And a verification loop that
+    caught nine bad contacts before institutional outreach went out.</p>
+  </div>
+</div>
+</div>
+
+<!-- ================= SELECTED WORK ================= -->
+<section>
+<div class="wrap">
+  <div class="sec-head"><h2>Selected work</h2><div class="rule"></div><span class="k">Five cases</span></div>
+
+  <div class="case">
+    <div class="idx">01</div>
+    <div>
+      <h3>The subsidy was going to the wrong party</h3>
+      <div class="meta"><b>Korea Commission for Corporate Partnership</b><span>Graduate hiring program redesign</span><span>2020&ndash;2023</span></div>
+      <p>A government program meant to help small firms hire university graduates was barely being
+      used, by either side. Rather than push harder on recruitment, I ran structured interviews with
+      30 participating companies and surveyed students to find out why.</p>
+      <p>Three causes came back. The program was not customized to individual firms. The value
+      proposition was unclear from the applicant's side. And the subsidy went to the company rather
+      than to the new hire, who was the one actually carrying the risk of joining a small firm.
+      I redesigned around all three, piloted, then scaled.</p>
+      <div class="nums">
+        <div class="num"><b>30</b><span>companies interviewed</span></div>
+        <div class="num"><b>246</b><span>graduates hired</span></div>
+        <div class="num"><b>~5&times;</b><span>versus prior results</span></div>
+      </div>
+      <div class="pull"><span class="lab">What I took from it</span>
+      The instinct to diagnose before you act matters more than moving fast.</div>
+    </div>
+  </div>
+
+  <div class="case">
+    <div class="idx">02</div>
+    <div>
+      <h3>North Carolina's first statewide impact manager inventory</h3>
+      <div class="meta"><b>Duke CASE i3 Consulting Practicum</b><span>Client: Good TRBL</span><span>Led the Financial Inclusion workstream</span><span>Spring 2026</span></div>
+      <p>Seven students, one client, four focus areas. I owned Financial Inclusion end to end:
+      the literature and policy research, outreach to 13 general partners, the interviews, and the
+      written section that went to the client.</p>
+      <p>The database took 500+ raw entries down to 406 verified managers through a two-step screen.
+      I declined to inherit the data provider's taxonomy. Not every investment in financial services
+      should count as financial inclusion, so I narrowed the test to firms explicitly targeting
+      underserved populations or structural barriers to credit. That kept a good deal of impact-washing
+      out of the final list. I also wrote the limits of my own dataset into the deliverable: being
+      headquartered in North Carolina does not mean a firm invests there.</p>
+      <div class="nums">
+        <div class="num"><b>406</b><span>managers verified from 500+</span></div>
+        <div class="num"><b>31%</b><span>had disclosed, verifiable AUM</span></div>
+        <div class="num"><b>13</b><span>GPs contacted, 3 interviewed</span></div>
+      </div>
+      <div class="pull"><span class="lab">The finding I did not expect</span>
+      I went in expecting capital scarcity. What came up, repeatedly, was the difficulty of
+      translating interest into deployment. Capital wasn't the binding constraint. The connective
+      tissue was.</div>
+    </div>
+  </div>
+
+  <div class="case">
+    <div class="idx">03</div>
+    <div>
+      <h3>33 US banks, one capability map, and a contact list I didn't trust</h3>
+      <div class="meta"><b>Ledger Ridge Partners</b><span>Summer Advisory Analyst, institutional digital assets</span><span>Summer 2026</span></div>
+      <p>Twelve Tier 1 banks, twenty Tier 2, and a standalone Bank of America diagnostic, all aligned
+      to a client partner's three service lines so gaps were comparable across institutions. The
+      Bank of America read was a gap diagnosis, not a market survey: the patents were a hedge, the
+      research was positioning, the platform did not exist. A separate report on 22 asset managers
+      inverted the thesis. Banks need infrastructure to launch products. Asset managers have already
+      launched and need distribution and settlement rails.</p>
+      <p>Before outreach went out, I checked the contact list against its sources line by line.
+      Nine of seventeen rows needed correcting. One person listed as a bank executive was in fact an
+      equity research analyst at the group's securities arm. Anything I could not verify, I escalated
+      rather than guessed.</p>
+      <div class="nums">
+        <div class="num"><b>33</b><span>institutions mapped</span></div>
+        <div class="num"><b>15&rarr;6</b><span>sources into recommendations</span></div>
+        <div class="num"><b>9<span style="font-size:1.1rem">/17</span></b><span>contact errors caught pre-outreach</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="case">
+    <div class="idx">04</div>
+    <div>
+      <h3>One intake framework for four mandates that don't agree</h3>
+      <div class="meta"><b>S.Grand Group</b><span>M&amp;A Fellowship, deal origination</span><span>Summer 2026</span></div>
+      <p>Four acquirer mandates whose screens genuinely conflict. One works a revenue box, one an
+      EBITDA floor, one an ownership structure, one a geography. I built a single twelve-field intake
+      card all four run through, so the pipeline could be worked in parallel instead of four separate
+      ways.</p>
+      <p>About 26 companies researched. When the first pass produced nothing inside one buyer's range,
+      the answer was not to source harder. Every candidate had fallen below the revenue floor, so the
+      screen was wrong. I rebuilt sourcing around that constraint and produced the first candidate
+      inside the box. Disqualified targets got documented with the reason, so nobody would research
+      them twice.</p>
+      <div class="pull"><span class="lab">Written into the client deliverables</span>
+      "$77M&ndash;$118M (sources conflict, verify)." "Email addresses are estimated from company
+      domain patterns. Verify before sending." Flagging my own uncertainty beats handing over a
+      clean number I can't defend.</div>
+    </div>
+  </div>
+
+  <div class="case">
+    <div class="idx">05</div>
+    <div>
+      <h3>A project my own organization's norms said to stay out of</h3>
+      <div class="meta"><b>Korea Commission for Corporate Partnership</b><span>Former mining region revitalization</span><span>2020&ndash;2023</span></div>
+      <p>A region that had lost its economic base. Companies unwilling to absorb the cost and
+      uncertainty of relocating there. Residents who wanted real compensation and doubted the
+      companies were serious. The agency had always played a passive, facilitating role in this kind
+      of project, and senior colleagues advised against doing more.</p>
+      <p>I took full ownership knowing failure would land on me. One-on-ones with executives to learn
+      what each actually needed. A tailored incentive package built with government agencies. Town
+      halls and workshops with residents. Then the part that mattered most: a standing collaboration
+      committee, so the two sides negotiated directly and the project stopped depending on me sitting
+      in the middle of it.</p>
+      <div class="nums">
+        <div class="num"><b>12</b><span>startups relocated</span></div>
+        <div class="num"><b>$27M+</b><span>investment attracted</span></div>
+        <div class="num"><b>50+</b><span>jobs created</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section class="xp">
+<div class="wrap">
+  <div class="sec-head"><h2>Experience</h2><div class="rule"></div><span class="k">Seoul &rarr; Durham</span></div>
+
+  <div class="job">
+    <div class="yr">2025 &ndash; 27</div>
+    <div>
+      <h4>Duke University, Fuqua School of Business</h4>
+      <div class="where">MBA Candidate &middot; Merit Fellowship &middot; Operations, Strategy, Finance</div>
+      <p>Net Impact Club and Asian Business Club cabinets. CASE i3 Consulting Practicum: highest grade
+      awarded, largest credit load of the term.</p>
+    </div>
+  </div>
+  <div class="job">
+    <div class="yr">Summer 2026</div>
+    <div>
+      <h4>Summer Advisory Analyst</h4>
+      <div class="where">Ledger Ridge Partners &middot; investment research, institutional digital assets &middot; Miami (remote)</div>
+      <p>Co-authored every deliverable with the managing partner. Tier 1 and Tier 2 bank reports
+      covering 33 institutions, a 22-firm asset manager analysis, a client proposal to a global
+      custody bank, and investor segmentation for a tokenized reinsurance product. Ran contact
+      verification as a standalone deliverable before any outreach went out.</p>
+    </div>
+  </div>
+  <div class="job">
+    <div class="yr">Summer 2026</div>
+    <div>
+      <h4>Deal Origination Analyst, M&amp;A Fellowship</h4>
+      <div class="where">S.Grand Group &middot; lower-middle-market M&amp;A &middot; remote</div>
+      <p>Sourced and screened acquisition targets for four acquirer mandates, roughly 26 companies
+      researched. Built the twelve-field intake framework the team ran all four mandates through,
+      weekly pipeline reporting, and owner outreach on a legacy-and-succession framing rather than
+      a transactional one. Held concurrently with Ledger Ridge, 40+ hours a week combined.</p>
+    </div>
+  </div>
+  <div class="job">
+    <div class="yr">2023 &ndash; 25</div>
+    <div>
+      <h4>Strategic Partnerships Manager</h4>
+      <div class="where">Korea Commission for Corporate Partnership &middot; Seoul</div>
+      <p>Market-entry and partnership strategy across 200+ conglomerates and 5,000+ small and medium
+      firms. Quarterly executive roundtables with 100+ C-suite leaders. 10+ policy recommendations adopted.</p>
+    </div>
+  </div>
+  <div class="job">
+    <div class="yr">2020 &ndash; 23</div>
+    <div>
+      <h4>Project Manager, Cooperation Fund Department</h4>
+      <div class="where">Korea Commission for Corporate Partnership &middot; Seoul</div>
+      <p>Managed a $2M+ annual development fund across 50+ rural communities. Structured a
+      public-private initiative reaching over a million residents.</p>
+    </div>
+  </div>
+  <div class="job">
+    <div class="yr">2018 &ndash; 20</div>
+    <div>
+      <h4>Analyst, Legal &amp; Compliance</h4>
+      <div class="where">Hyundai Rotem &middot; rail and defense manufacturing &middot; Seoul</div>
+      <p>Ran a compliance diagnostic across 10 business units, then built a centralized platform
+      connecting ~500 partner companies. Review time down 40%, regulatory breaches down 33%. The expected
+      output of the role was memos. The problem was structural, so I built infrastructure instead.</p>
+    </div>
+  </div>
+  <div class="job">
+    <div class="yr">Military</div>
+    <div>
+      <h4>Military Police Officer</h4>
+      <div class="where">55th Military Police Unit, US 2nd Infantry Division (KATUSA)</div>
+      <p>A Korean national embedded in an American command, belonging fully to neither, whose job was
+      to make two systems that don't naturally understand each other work together. Structurally the
+      same seat I've held in every role since.</p>
+    </div>
+  </div>
+  <div class="job">
+    <div class="yr">2018</div>
+    <div>
+      <h4>Hanyang University</h4>
+      <div class="where">B.A., Policy Studies &middot; Seoul &middot; merit scholarships</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ================= HOW I WORK ================= -->
+<section>
+<div class="wrap">
+  <div class="sec-head"><h2>How I work</h2><div class="rule"></div></div>
+  <div class="how">
+    <div class="pt">
+      <h4>People before data</h4>
+      <p>Thirty company interviews before redesigning the hiring program. GP and LP conversations
+      before writing the financial inclusion section. One-on-ones with executives before proposing
+      incentives. The insight has never once arrived from a spreadsheet first.</p>
+    </div>
+    <div class="pt">
+      <h4>Distrust the category I was handed</h4>
+      <p>The screen everyone accepts is usually the thing hiding the answer. A data provider's
+      taxonomy would have let impact-washing through. When sourcing failed against a mandate, the
+      screen was wrong, not the effort.</p>
+    </div>
+    <div class="pt">
+      <h4>AI as a junior analyst, not an oracle</h4>
+      <p>I build it into repeatable workflows: research pipelines, a project system that finished a
+      client engagement ahead of schedule, an email triage dashboard. Then I ask where every claim came
+      from and read the source myself. Numbers especially. Nothing goes out unchecked.</p>
+    </div>
+    <div class="pt">
+      <h4>Leave behind something that runs without me</h4>
+      <p>A compliance platform 500 companies use. An intake card four buyers run through. A standing
+      committee that made my own mediation unnecessary. When you have no authority, a framework
+      everyone agrees to is how you get leverage.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+<div class="wrap">
+  <h2>Let's <em>talk.</em></h2>
+  <p>Strategy, operations, partnerships, or corporate development roles starting mid-2027. Or just
+  to compare notes on any of the above.</p>
+  <div class="contact">
+    <a class="btn solid" href="mailto:jinwon.hwang@duke.edu">jinwon.hwang@duke.edu</a>
+    <a class="btn" href="tel:+19192014208">(919) 201-4208</a>
+  </div>
+  <p class="fine">It's Jinwon, but Jin is completely fine. Every figure on this page comes from
+  primary documents I wrote or the source records behind them. Glad to walk through the methodology
+  on any of it.</p>
+</div>
+</footer>
+
+</body>
+</html>
